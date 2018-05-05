@@ -13,6 +13,7 @@ namespace PhotoSharingApp.Model
         public DateTime CreatedDate { get; set; }
         public string Owner { get; set; }
         public string Description { get; set; }
+        public virtual ICollection<Comment> Comments{ get; set; }
 
 
 
