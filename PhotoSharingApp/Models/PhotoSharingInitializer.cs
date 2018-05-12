@@ -1,6 +1,7 @@
 ﻿using PhotoSharingApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -11,17 +12,17 @@ namespace PhotoSharingApp.Models
     {
         protected override void Seed(PhotoSharingContext context)
         {
-            List<Photo> photo = new List<Photo>();
+            Collection<Photo> photo = new Collection<Photo>();
             Photo ph = new Photo();
             ph.Title = "Test Photo";
-            ph.Description = "This is a test";
+            ph.Description = "tesst tesst :p";
             ph.Owner = "NaokiSato";
             ph.PhotoFile = getFileBytes("\\Images\\");
             ph.CreatedDate = DateTime.Now;
             ph.ImageMimeType = "image/jpeg";
             photo.Add(ph);
-            context.Photos.Add(photo.ForEach());
-            base.Seed(context);
+            context.Photos.AddRange(photo);
+                base.Seed(context);
 
 
         }
