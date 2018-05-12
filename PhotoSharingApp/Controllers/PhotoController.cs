@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotoSharingApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace PhotoSharingApp.Controllers
         // GET: Photo
         public ActionResult Index()
         {
-            return View();
+            var photo = new Photo();
+            return View(photo);
         }
     }
 }
