@@ -21,7 +21,8 @@ namespace PhotoSharingApp.Models
             ph.CreatedDate = DateTime.Now;
             ph.ImageMimeType = "image/jpeg";
             photo.Add(ph);
-            context.Photos.AddRange(photo);
+            foreach(Photo p in photo )
+            context.Photos.Add(p);
                 base.Seed(context);
 
 
