@@ -38,3 +38,5 @@ C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingApp\bin\Syst
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingApp\obj\Debug\PhotoSharingApp.csprojResolveAssemblyReference.cache
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingApp\obj\Debug\PhotoSharingApp.dll
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingApp\obj\Debug\PhotoSharingApp.pdb
+C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingApp\bin\EntityFramework.dll
+C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingApp\bin\EntityFramework.xml

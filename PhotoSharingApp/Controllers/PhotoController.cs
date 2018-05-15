@@ -1,4 +1,5 @@
 ﻿using PhotoSharingApp.Model;
+using PhotoSharingApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,12 @@ namespace PhotoSharingApp.Controllers
 {
     public class PhotoController : Controller
     {
+        private PhotoSharingContext context = new PhotoSharingContext();
         // GET: Photo
         public ActionResult Index()
         {
-            var photo = new Photo();
-            return View(photo);
+            //var photo = new Photo();
+            return View(context.Photos.First<Photo>());
         }
     }
 }
