@@ -2,12 +2,14 @@
 using PhotoSharingApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace PhotoSharingApp.Controllers
 {
+    [ValueReporter]
     public class PhotoController : Controller
     {
         private PhotoSharingContext context = new PhotoSharingContext();
@@ -72,13 +74,44 @@ namespace PhotoSharingApp.Controllers
         List<Photo> photos = context.Photos.ToList();
         var verif = photos.Find(photo => photo.PhotoID == id);
         //verification de lexistence de l'image 
-        //test sur la verif
+        
 
             context.Entry(verif).State = System.Data.EntityState.Deleted;
             context.SaveChanges();
             return RedirectToAction("Index");
     }
+        public FileContentResult GetImage(int id)
+        {
+            List<Photo> photos = context.Photos.ToList();
+            var verif = photos.Find(photo => photo.PhotoID == id);
+            if (verif != null)
+            {
 
+                return (new FileContentResult(verif.PhotoFile, verif.ImageMimeType));
+            }
+            else
+            {
+                return null;
+            }
+        }
+        [ChildActionOnly]
+        public ActionResult _PhotoGallery(int number = 0)
+        {
+            Debug.WriteLine("\n ani houniiiii \n");
+
+            List<Photo> photos = new List<Photo>();
+            if (number == 0)
+            {
+                photos = context.Photos.ToList();
+            }
+            else
+            {
+                photos = (from p in context.Photos
+                          orderby p.createdDate descending
+                          select p).Take(number).ToList();
+            }
+            return PartialView("_PhotoGallery", photos);
+        }
 
     }
 
