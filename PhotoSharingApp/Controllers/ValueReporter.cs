@@ -5,7 +5,6 @@ using System.Web;
 using System.Diagnostics;
 using System.Web.Mvc;
 using System.Web.Routing;
-
 namespace PhotoSharingApp.Controllers
 {
     public class ValueReporter : ActionFilterAttribute

@@ -1,8 +1,9 @@
-﻿using PhotoSharingApp.Model;
+﻿using PhotoSharingApp.Controllers;
+using PhotoSharingApp.Model;
 using PhotoSharingApp.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,9 +17,10 @@ namespace PhotoSharingApp.Controllers
         // GET: Photo
         public ActionResult Index()
         {
-            //var photo = new Photo();
-            return View(context.Photos.ToList()); 
-                //context.Photos.First<Photo>());
+            //var photo = new Photo(); 
+            return View("Index");
+            //context.Photos.First<Photo>()
+            //context.Photos.ToList()
         }
         public ActionResult Display(int id)
         {
@@ -94,10 +96,9 @@ namespace PhotoSharingApp.Controllers
                 return null;
             }
         }
-        [ChildActionOnly]
+       /* [ChildActionOnly]
         public ActionResult _PhotoGallery(int number = 0)
         {
-            Debug.WriteLine("\n ani houniiiii \n");
 
             List<Photo> photos = new List<Photo>();
             if (number == 0)
@@ -107,11 +108,11 @@ namespace PhotoSharingApp.Controllers
             else
             {
                 photos = (from p in context.Photos
-                          orderby p.createdDate descending
+                          orderby p.CreatedDate descending
                           select p).Take(number).ToList();
             }
-            return PartialView("_PhotoGallery", photos);
-        }
+            return PartialView("_PhotoGallery",photos);
+        }*/
 
     }
 
