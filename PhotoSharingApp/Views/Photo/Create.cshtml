@@ -1,0 +1,35 @@
+﻿@model PhotoSharingApp.Model.Photo
+
+<div>
+    <h2>Create New Photo</h2>
+    @using (Html.BeginForm("Create", "Photo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true)
+        <p>
+            @Html.LabelFor(model => model.title):
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </p>
+            <p>
+                @Html.LabelFor(model => model.photoFile) :
+                <input type="file" name="Image" />
+            </p>
+            <p>
+                @Html.LabelFor(model => model.description) :
+                @Html.EditorFor(model => model.description)
+                @Html.ValidationMessageFor(model => model.description)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.owner) :
+                @Html.EditorFor(model => model.owner)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.createdDate) :
+                @Html.DisplayFor(model => model.createdDate)
+            </p>
+            <p>
+                <input type="submit" value="Create" />
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+    }
+</div>

@@ -22,6 +22,24 @@ namespace PhotoSharingApp.Controllers
             //context.Photos.First<Photo>()
             //context.Photos.ToList()
         }
+        [ChildActionOnly]
+        public ActionResult _PhotoGallery(int number = 0)
+        {
+
+            List<Photo> photos = new List<Photo>();
+            if (number == 0)
+            {
+                photos = context.Photos.ToList();
+            }
+            else
+            {
+                photos = (from p in context.Photos
+                          orderby p.CreatedDate descending
+                          select p).Take(number).ToList();
+            }
+            return PartialView("_PhotoGallery", photos);
+        }
+
         public ActionResult Display(int id)
         {
             List<Photo> photos = context.Photos.ToList();
@@ -96,24 +114,7 @@ namespace PhotoSharingApp.Controllers
                 return null;
             }
         }
-       /* [ChildActionOnly]
-        public ActionResult _PhotoGallery(int number = 0)
-        {
-
-            List<Photo> photos = new List<Photo>();
-            if (number == 0)
-            {
-                photos = context.Photos.ToList();
-            }
-            else
-            {
-                photos = (from p in context.Photos
-                          orderby p.CreatedDate descending
-                          select p).Take(number).ToList();
-            }
-            return PartialView("_PhotoGallery",photos);
-        }*/
-
+       
     }
 
 
