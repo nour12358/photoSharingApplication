@@ -53,7 +53,7 @@ namespace PhotoSharingApp.Controllers
         {
             Photo photo = new Photo();
             photo.CreatedDate = DateTime.Now;
-            return View("created", photo);
+            return View("Create", photo);
         }
         [HttpPost]
         public ActionResult Create(Photo photo, HttpPostedFileBase image)

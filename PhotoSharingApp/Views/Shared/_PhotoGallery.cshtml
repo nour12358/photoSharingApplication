@@ -1,5 +1,4 @@
-﻿@model IEnumerable
-<PhotoSharingApp.Model.Photo>
+﻿@model  IEnumerable <PhotoSharingApp.Model.Photo>
 @foreach (var item in Model)
 {
     <h3>"@item.Title"</h3>
@@ -14,7 +13,7 @@
     <p>
         Created By:
         @Html.DisplayFor(
- model => item.UserName)
+ model => item.Owner)
     </p>
 
 
