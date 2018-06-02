@@ -13,7 +13,6 @@ C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\De
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\PhotoSharingTests.dll.config
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\PhotoSharingTests.dll
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\PhotoSharingTests.pdb
-C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\PhotoSharingApp.dll
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\System.Web.Helpers.dll
@@ -33,7 +32,6 @@ C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\De
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\System.Web.Optimization.xml
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\EntityFramework.xml
-C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\obj\Debug\PhotoSharingTests.csprojResolveAssemblyReference.cache
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\obj\Debug\PhotoSharingTests.dll
 C:\Users\NOUR\Desktop\SEMESTRE2\photoSharingApplication\PhotoSharingTests\obj\Debug\PhotoSharingTests.pdb

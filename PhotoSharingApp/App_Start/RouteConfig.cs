@@ -13,6 +13,13 @@ namespace PhotoSharingApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "PhotoRoute", 
+                url: "photo/{id}",
+                defaults: new { controller = "Photo", action = "Display" },
+                constraints: new { id = "[0-9]+" }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
