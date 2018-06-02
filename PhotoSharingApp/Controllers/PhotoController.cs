@@ -13,7 +13,18 @@ namespace PhotoSharingApp.Controllers
     [ValueReporter]
     public class PhotoController : Controller
     {
-        private PhotoSharingContext context = new PhotoSharingContext();
+        private IPhotoSharingContext context;
+
+        public PhotoController()
+        {
+            context = new PhotoSharingContext();
+        }
+
+        public PhotoController(IPhotoSharingContext Context)
+        { context = Context; }
+
+        
+
         // GET: Photo
         public ActionResult Index()
         {
@@ -42,10 +53,10 @@ namespace PhotoSharingApp.Controllers
 
         public ActionResult Display(int id)
         {
-            List<Photo> photos = context.Photos.ToList();
-            var verif = photos.Find(photo => photo.PhotoID == id);
+
+            Photo verif = context.FindPhotoById(id);
             if (verif != null)
-                return View("display" , verif);
+                return View("Display", verif);
             else
                 return HttpNotFound();
         }
@@ -65,7 +76,7 @@ namespace PhotoSharingApp.Controllers
                     photo.ImageMimeType = image.ContentType;
                     photo.PhotoFile = new byte[image.ContentLength];
                     image.InputStream.Read(photo.PhotoFile, 0, image.ContentLength);
-                    context.Photos.Add(photo);
+                    context.Add<Photo>(photo);
                     context.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -79,31 +90,29 @@ namespace PhotoSharingApp.Controllers
     
     public ActionResult Delete(int id)
     {
-        List<Photo> photos = context.Photos.ToList();
-        var verif = photos.Find(photo => photo.PhotoID == id);
-        if (verif != null)
-            return HttpNotFound();
-        else
-            return View("delete", verif);
-        
-    }
+            Photo verif = context.FindPhotoById(id);
+            if (verif == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View("Delete", verif);
+            }
+
+        }
     [HttpPost]
     [ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-        List<Photo> photos = context.Photos.ToList();
-        var verif = photos.Find(photo => photo.PhotoID == id);
-        //verification de lexistence de l'image 
-        
-
-            context.Entry(verif).State = System.Data.EntityState.Deleted;
+            Photo verif = context.FindPhotoById(id);
+            context.Delete<Photo>(verif);
             context.SaveChanges();
             return RedirectToAction("Index");
-    }
+        }
         public FileContentResult GetImage(int id)
         {
-            List<Photo> photos = context.Photos.ToList();
-            var verif = photos.Find(photo => photo.PhotoID == id);
+            Photo verif = context.FindPhotoById(id);
             if (verif != null)
             {
 

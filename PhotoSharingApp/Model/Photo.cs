@@ -14,6 +14,7 @@ namespace PhotoSharingApp.Model
         [DisplayName("Picture")]
         public  byte[] PhotoFile { get; set; }
         [DataType(DataType.MultilineText)]
+        [Required]
         public string Description { get; set; }
         [DataType(DataType.DateTime)]
         [DisplayName("Created Date")]
