@@ -50,5 +50,35 @@ namespace PhotoSharingTests
             var result = controller.GetImage(1) as ActionResult;
             Assert.AreEqual(typeof(FileContentResult), result.GetType());
         }
+        [TestMethod]
+        public void Test_PhotoGallery_No_Parameter()
+        {
+            var context = new FakePhotoSharingContext();
+            context.Photos = new[] {
+                new Photo(),
+                new Photo(),
+                new Photo(),
+                new Photo()
+            }.AsQueryable();
+            var controller = new PhotoController(context);
+            var result = controller._PhotoGallery() as PartialViewResult;
+            var modelPhotos = (IEnumerable<Photo>)result.Model;
+            Assert.AreEqual(4, modelPhotos.Count());
+        }
+        [TestMethod]
+        public void Test_PhotoGallery_Int_Parameter()
+        {
+            var context = new FakePhotoSharingContext();
+            context.Photos = new[] {
+                new Photo(),
+                new Photo(),
+                new Photo(),
+                new Photo()
+            }.AsQueryable();
+            var controller = new PhotoController(context);
+            var result = controller._PhotoGallery(3) as PartialViewResult;
+            var modelPhotos = (IEnumerable<Photo>)result.Model;
+            Assert.AreEqual(3, modelPhotos.Count());
+        }
     }
 }

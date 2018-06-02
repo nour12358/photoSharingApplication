@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace PhotoSharingApp.Controllers
 {
+    [HandleError(View = "Error")]
     [ValueReporter]
     public class PhotoController : Controller
     {
@@ -110,7 +111,7 @@ namespace PhotoSharingApp.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-        public FileContentResult GetImage(int id)
+    public FileContentResult GetImage(int id)
         {
             Photo verif = context.FindPhotoById(id);
             if (verif != null)
@@ -123,7 +124,12 @@ namespace PhotoSharingApp.Controllers
                 return null;
             }
         }
-       
+
+     public ActionResult SlideShow()
+        {
+            throw new NotImplementedException("The SlideShow action is not yet ready");
+        }
+
     }
 
 
